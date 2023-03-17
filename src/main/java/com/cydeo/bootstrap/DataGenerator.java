@@ -4,7 +4,7 @@ import com.cydeo.dto.RoleDTO;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.enums.Gender;
 import com.cydeo.service.RoleService;
-import com.cydeo.service.impl.UserServiceImpl;
+import com.cydeo.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component;
 public class DataGenerator implements CommandLineRunner {
 
     private final RoleService roleService;
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
-    public DataGenerator(RoleService roleService, UserServiceImpl userService) {
+    public DataGenerator(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
     }
+
     @Override
     public void run(String... args) throws Exception {
         RoleDTO adminRole = new RoleDTO(1L,"Admin");
