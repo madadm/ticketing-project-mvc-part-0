@@ -42,13 +42,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
+                                            <tr th:each="theProject : ${projects}">
+                                                <td th:text="${theProject.projectCode}"></td>
+                                                <td th:text="${theProject.projectName}"></td>
+                                                <td th:text="${theProject.startDate+'-'+theProject.endDate}"></td>
+                                                <td th:text="${theProject.assignedManager.firstName+' '+theProject.assignedManager.lastName}"></td>
                                                 <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td th:text="${theProject.status.value}"></td>
                                                 <td>
                                                     <!--Show this if the project can be completed-->
                                                     <a class="btn btn-info rounded-0" href="#">Complete</a>
