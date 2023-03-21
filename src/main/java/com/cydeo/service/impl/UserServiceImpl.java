@@ -4,7 +4,9 @@ import com.cydeo.dto.UserDTO;
 import com.cydeo.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.sql.Array;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl extends AbstractMapService <UserDTO,String>implements UserService {
@@ -34,4 +36,12 @@ public class UserServiceImpl extends AbstractMapService <UserDTO,String>implemen
     public void update(UserDTO user) {
         super.update(user.getUserName(), user);
     }
+
+    @Override
+    public List<UserDTO> findByRole(String role)
+    {
+
+        return super.findAll().stream().filter(s->s.getRole().getDescription().equals(role)).collect(Collectors.toList());
+    }
+
 }
