@@ -30,7 +30,7 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form th:object="${project}" method="post" th:action="@{/project/create}">
+                                    <form th:object="${project}" method="post" th:action="@{/project/update}">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
@@ -43,7 +43,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="projectcode" class="col-form-label">Project Code</label>
-                                                    <input id="projectcode" type="text" class="form-control" placeholder="project code" th:field="*{projectCode}">
+                                                    <input id="projectcode" type="text" class="form-control" placeholder="project code" th:field="*{projectCode}" readonly>
                                                 </div>
                                             </div>
                                         </div>
