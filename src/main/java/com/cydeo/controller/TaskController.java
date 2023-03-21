@@ -25,7 +25,7 @@ public class TaskController {
     }
 
     @GetMapping("/create")
-    public String taskCreate(Model model){
+    public String taskCreate(Model model) {
 
         model.addAttribute("task", new TaskDTO());
         model.addAttribute("employees", userService.findByRole("Employee"));
@@ -45,14 +45,14 @@ public class TaskController {
     }
 
     @GetMapping("/delete/{taskId}")
-    public String projectDelete(@PathVariable("taskId") Long taskId){
+    public String taskDelete(@PathVariable("taskId") Long taskId) {
         taskService.deleteById(taskId);
         return "redirect:/task/create";
     }
 
 
     @GetMapping("/update/{taskId}")
-    public String editProject(@PathVariable("taskId") Long taskId, Model model){
+    public String taskEdit(@PathVariable("taskId") Long taskId, Model model) {
 
         model.addAttribute("task", taskService.findById(taskId));
         model.addAttribute("employees", userService.findByRole("Employee"));
@@ -62,13 +62,19 @@ public class TaskController {
         return "/task/update";
     }
 
-    @PostMapping("/update")
-    public String updateProject(@ModelAttribute("task") TaskDTO task){
+    //    @PostMapping("/update/{taskId}")
+//    public String updateTask(@PathVariable("taskId") Long taskId,  TaskDTO task){
+//
+//         task.setId(taskId);
+//         taskService.update(task);
+//        return "redirect:/task/create";
+//    }
+    @PostMapping("/update/{id}")
+    public String updateTask( TaskDTO task) {
 
-         taskService.update(task);
+        taskService.update(task);
         return "redirect:/task/create";
     }
-
 
 }
 
