@@ -40,8 +40,9 @@ public class UserServiceImpl extends AbstractMapService <UserDTO,String>implemen
     @Override
     public List<UserDTO> findByRole(String role)
     {
-
-        return super.findAll().stream().filter(s->s.getRole().getDescription().equals(role)).collect(Collectors.toList());
+        return super.findAll().stream().
+                filter(s->s.getRole().getDescription().equals(role))
+                .collect(Collectors.toList());
     }
 
 }
