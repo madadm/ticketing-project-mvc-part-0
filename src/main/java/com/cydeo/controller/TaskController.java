@@ -62,7 +62,7 @@ public class TaskController {
         return "/task/update";
     }
 
-    //    @PostMapping("/update/{taskId}")
+    //    @PostMapping("/update/{taskId}")                          Don't need to put ModelVariable here
 //    public String updateTask(@PathVariable("taskId") Long taskId,  TaskDTO task){
 //
 //         task.setId(taskId);
